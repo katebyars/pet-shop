@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+body{
+background-color: #89BFB8;
+}
+.jumbotron {
+  font-family: 'Pacifico', cursive;
+  font-size: 100px;
+  color: #547571;
+  text-align: center;
+  background: inherit;
+}
+.style1 {
+  color: #547571;
+  font-family:  'Pacifico', cursive;
+  font-size: 40px;
+}
+.panel {
+  text-align: center;
+  color: #18F1FF;
+}
