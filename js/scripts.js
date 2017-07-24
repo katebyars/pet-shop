@@ -17,11 +17,11 @@ function Person(firstName, lastName, location){
   this.address = location;
 }
 
-Shelter.prototype.addPet = function(){
-  for (var i = 0; i <arguments.length; i++){
-    this.animal.push(arguments[i]);
-  }
-}
+// Shelter.prototype.addPet = function(){
+//   for (var i = 0; i <arguments.length; i++){
+//     this.animal.push(arguments[i]);
+//   }
+// }
 
 Shelter.prototype.petByName = function(name){
   for(var i=0; i < this.animal.length; i++){
@@ -58,13 +58,16 @@ Shelter.prototype.petByStatus = function(status){
 
 //UI
 $(document).ready(function(){
+  var myShelter = new Shelter();
+
   $("#addPet").submit(function(event){
     var name = $("#petName").val();
     var species = $("#petSpecies").val();
     var age = $("#petAge").val();
     var newPet = new Animal(name, age, species);
-    // ourShelter.addPet(newPet);
-    $(".pets").append('<div class="col-md-4">' +
+    myShelter.animal.push(newPet);
+    console.log(myShelter.animal);
+    $(".pets").append('<div class="col-md-4 ' + newPet.species + '">' +
                         '<div class="panel panel-default">' +
                           '<div class="panel-heading">' +
                             '<p class="style1">' +
