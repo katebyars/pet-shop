@@ -58,11 +58,28 @@ Shelter.prototype.petByStatus = function(status){
 
 //UI
 $(document).ready(function(){
-  $("#addPet").click(function(){
+  $("#addPet").submit(function(event){
     var name = $("#petName").val();
     var species = $("#petSpecies").val();
     var age = $("#petAge").val();
     var newPet = new Animal(name, age, species);
-    ourShelter.addPet(newPet);
+    // ourShelter.addPet(newPet);
+    $(".pets").append('<div class="col-md-4">' +
+                        '<div class="panel panel-default">' +
+                          '<div class="panel-heading">' +
+                            '<p class="style1">' +
+                              newPet.petName +
+                            '</p>' +
+                          '</div>' +
+                          '<div class="panel-body">' +
+                            'The age of this pet: <br>' +
+                            newPet.age+
+                            '<br> This pet is: <br>' +
+                            newPet.species +
+                          '</div>'+
+                        '</div>' +
+                      '</div>');
+    event.preventDefault();
+
   });
 });
