@@ -4,11 +4,12 @@ function Shelter(){
   this.person = [];
 }
 
-function Animal(petName, age, species){
+function Animal(petName, age, species, id){
   this.petName = petName;
   this.age = age;
   this.species = species;
   this.adopted = false;
+  this.idNum = id;
 }
 
 function Person(firstName, lastName, location){
@@ -17,11 +18,11 @@ function Person(firstName, lastName, location){
   this.address = location;
 }
 
-// Shelter.prototype.addPet = function(){
-//   for (var i = 0; i <arguments.length; i++){
-//     this.animal.push(arguments[i]);
-//   }
-// }
+Shelter.prototype.addPet = function(name, age, species){
+  var newID = this.animal.length;
+  var newPet = new Animal(name,age,species,newID);
+  this.animal.push(newPet);
+}
 
 Shelter.prototype.petByName = function(name){
   for(var i=0; i < this.animal.length; i++){
@@ -78,7 +79,7 @@ $(document).ready(function(){
                     '<div class="panel-body">'+
                       '<p>Age: ' + animalArray[i].age +', species: ' + animalArray[i].species + '</p>' +
                       '<div class="checkbox">' +
-                        '<label><input type="checkbox" value="">Adopt Me!</label>'+
+                        '<label><input type="checkbox" value="" id="' + animalArray[i].idNum + '">Adopt Me!</label>'+
                       '</div>'+
                     '</div>'+
                   '</div>'+
@@ -99,8 +100,7 @@ $(document).ready(function(){
     var name = $("#petName").val();
     var species = $("#petSpecies").val();
     var age = $("#petAge").val();
-    var newPet = new Animal(name, age, species);
-    myShelter.animal.push(newPet);
+    myShelter.addPet(name, age, species);
     console.log(myShelter.animal);
 
     var input = myShelter.animal;
