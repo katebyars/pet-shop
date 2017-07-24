@@ -118,4 +118,12 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
+  $(document).on('change', 'input[type="checkbox"]', function(event){
+    alert("hi");
+    var idNum = $(this).attr("id");
+
+    myShelter.animal[idNum].adopted = true;
+    debugger;
+    event.preventDefault();
+  });
 });
