@@ -12,54 +12,32 @@
       <div class="jumbotron">
         <h1><strong>Pets</strong></h1>
       </div>
-      <div class="well">
-        <form class="form-group" id="addPet">
-          <h3>Add a new pet for adoption</h3>
-          <label for="petName">Pet Name: </label>
-          <input type="text" id="petName">
-          <label for="petAge">Pet Age: </label>
-          <input type="text" id="petAge">
-          <label for="petSpecies">Pet Species: </label>
-          <input type="text" id="petSpecies">
-          <button type="submit" name="button" class="btn btn-primary">Add Pet!</button>
-        </form>
-      </div>
-      <div class="container pets">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <p class="style1">
-                  Golden Retriever
-                </p>
-              </div>
-              <div class="panel-body">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <p class="style1">
-                Sphynx Cat
-              </p>
-              </div>
-              <div class="panel-body">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <p class="style1">
-                Emu
-              </p>
-              </div>
-              <div class="panel-body">
-              </div>
+
+      <div class="container">
+        <div class="well">
+          <div class="row">
+            <form class="form-group" id="addPet">
+                <h3>Add a new pet for adoption</h3>
+                <label for="petName">Pet Name: </label>
+                <input type="text" id="petName">
+                <label for="petAge">Pet Age: </label>
+                <input type="text" id="petAge">
+                <label for="petSpecies">Pet Species: </label>
+                <input type="text" id="petSpecies">
+                <button type="submit" name="button" class="btn btn-primary">Add Pet!</button>
+              </form>
+              <form id="searchAnimals">
+                <div class="form-group">
+                  <label for="filterBy">Search By Species:</label>
+                  <input type="text" name="filterBy" id="filterBy">
+                  <button type="submit" name="button">Search</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
+      <div class="container pets">
       </div>
 
       <!-- <div class="row">

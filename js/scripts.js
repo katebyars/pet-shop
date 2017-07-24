@@ -36,8 +36,8 @@ Shelter.prototype.allPets = function(){
   return this.animal;
 }
 
-Shelter.prototype.petBySpecies = function(species){
-  var animals = [];
+Shelter.prototype.petBySpecies = function(species, animals){
+  //var animals = [];
   for(var i=0; i < this.animal.length; i++){
     if(this.animal[i].species === species){
       animals.push(this.animal[i]);
@@ -77,6 +77,9 @@ $(document).ready(function(){
                     '</div>'+
                     '<div class="panel-body">'+
                       '<p>Age: ' + animalArray[i].age +', species: ' + animalArray[i].species + '</p>' +
+                      '<div class="checkbox">' +
+                        '<label><input type="checkbox" value="">Adopt Me!</label>'+
+                      '</div>'+
                     '</div>'+
                   '</div>'+
                 '</div>';
@@ -104,6 +107,15 @@ $(document).ready(function(){
     var output = addPanels(input);
     $(".pets").html(output);
     event.preventDefault();
-
   });
+
+  $("#searchAnimals").submit(function(event){
+    var searchResults = $("#filterBy").val();
+    var input = [];
+    myShelter.petBySpecies(searchResults, input);
+    var output = addPanels(input);
+    $(".pets").html(output);
+    event.preventDefault();
+  });
+
 });
