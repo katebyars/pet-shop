@@ -60,6 +60,38 @@ Shelter.prototype.petByStatus = function(status){
 $(document).ready(function(){
   var myShelter = new Shelter();
 
+  function addPanels(animalArray){
+    var colCount = 3;
+    var output = "";
+
+    for(i=0; i < animalArray.length; i++){
+      if(colCount === 3){
+        output += '<div class="row">'
+      }
+      output += '<div class ="col-md-4">' +
+                  '<div class="panel panel-default">' +
+                    '<div class="panel-heading">' +
+                      '<p class="style1">' +
+                        animalArray[i].petName +
+                      '</p>'+
+                    '</div>'+
+                    '<div class="panel-body">'+
+                      '<p>Age: ' + animalArray[i].age +', species: ' + animalArray[i].species + '</p>' +
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+      colCount--;
+      if(colCount === 0){
+        output += '</div>';
+        colCount = 3;
+      }
+    }
+    if(animalArray.length%3 !== 0){
+      output += '</div>';
+    }
+    return output;
+  }
+
   $("#addPet").submit(function(event){
     var name = $("#petName").val();
     var species = $("#petSpecies").val();
@@ -67,21 +99,10 @@ $(document).ready(function(){
     var newPet = new Animal(name, age, species);
     myShelter.animal.push(newPet);
     console.log(myShelter.animal);
-    $(".pets").append('<div class="col-md-4 ' + newPet.species + '">' +
-                        '<div class="panel panel-default">' +
-                          '<div class="panel-heading">' +
-                            '<p class="style1">' +
-                              newPet.petName +
-                            '</p>' +
-                          '</div>' +
-                          '<div class="panel-body">' +
-                            'The age of this pet: <br>' +
-                            newPet.age+
-                            '<br> This pet is: <br>' +
-                            newPet.species +
-                          '</div>'+
-                        '</div>' +
-                      '</div>');
+
+    var input = myShelter.animal;
+    var output = addPanels(input);
+    $(".pets").html(output);
     event.preventDefault();
 
   });
