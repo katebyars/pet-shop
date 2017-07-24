@@ -58,6 +58,7 @@ Shelter.prototype.petByStatus = function(status){
 
 //UI
 $(document).ready(function(){
+
   var myShelter = new Shelter();
 
   function addPanels(animalArray){
@@ -116,6 +117,10 @@ $(document).ready(function(){
     var output = addPanels(input);
     $(".pets").html(output);
     event.preventDefault();
+  });
+
+  $("div .checkbox").onchange.(function(){
+
   });
 
 });
