@@ -58,15 +58,11 @@ Shelter.prototype.petByStatus = function(status){
 
 //UI
 $(document).ready(function(){
-  ourShelter = new Shelter();
-  var puppy1 = new Animal("charlie", 2, "dog");
-  var puppy2 = new Animal('chocolate', 3, 'dog');
-  var cat = new Animal ('bowser', 2, 'cat');
   $("#addPet").click(function(){
     var name = $("#petName").val();
     var species = $("#petSpecies").val();
     var age = $("#petAge").val();
     var newPet = new Animal(name, age, species);
     ourShelter.addPet(newPet);
-  })
+  });
 });
