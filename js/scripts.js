@@ -11,6 +11,10 @@ function Animal(petName, age, species, id){
   this.adopted = false;
   this.idNum = id;
 }
+//Toggle adoption status
+Animal.prototype.getAdopted = function () {
+  this.adopted = !(this.adopted);
+}
 
 function Person(firstName, lastName, location){
   this.firstName = firstName;
@@ -118,12 +122,13 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
-  $(document).on('change', 'input[type="checkbox"]', function(event){
-    alert("hi");
-    var idNum = $(this).attr("id");
-
-    myShelter.animal[idNum].adopted = true;
-    debugger;
+  //When checkbox clicked, change adoption status
+  $(document).on('click', 'input[type="checkbox"]', function(event){
     event.preventDefault();
+    //created getAdopted method && changed 'change' to 'click' && used .target jQuery to pinpoint intended element(works similarly to 'this')..
+    var idNum = $(event.target).attr("id");
+    console.log(myShelter.animal[idNum].adopted);
+    myShelter.animal[idNum].getAdopted();
+    console.log(myShelter.animal[idNum].adopted);
   });
 });
